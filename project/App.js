@@ -13,7 +13,7 @@
 
  const container1 = React.createElement("div",{id:"container1"},[heading1,pharagraf2])
 
-
+console.log("I am running ...!")
 
  const root = ReactDOM.createRoot(document.getElementById("root"))
 
