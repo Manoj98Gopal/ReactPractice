@@ -1,0 +1,59 @@
+1) What is Emmet?
+
+    most of the editors are used emments, which helps to write code faster and clean, The small abbrivation code is converted into large accurate code 
+
+
+2) Difference between a Library and Framework?
+
+    both of them we used for sloving our code problem and both of them are write some one , when we compare this both we should consentrated on calling code,
+    if we use Library our code is calling to Library where we want, if we use Framework , Framework will call to our code 
+    if we use Library the application is our control means we can control our components 
+    if we use Framework the application control will take Framework 
+    if we use Library we can call Library function where we want and use that code , it means freedome
+    if we use Framework we should follow certain rulls gave by the frame work , it means not freedome
+    if we use framework , the framework will give buetyfull platform to develop application and it gives css style and forms , https calls 
+    if we use library , it gives only code , it doesnt maintaind any global state 
+    for exmaple react is library , if we can maintain state we use Redux , if we want to call https request we use Axious 
+
+
+
+3) What is CDN? Why do we use it?
+
+    CDN means content delivary network , We are using cdn for taking the html and script data from internate to render in the browser 
+
+
+4) What is crossorigin in script tag?
+
+    If we serve react in CDN we need to use crossorigin because it enables the better error handling expireance and we can acces-contol-allow-origin
+    meants HTTP header 
+
+
+5) What is diference between React and ReactDOM?
+
+    React library is responsible for creating the ui element  and ReactDOM is responsible for actualy where we need to render code in browser
+
+
+6)What is async and defer?
+
+    usually when run the html document , first started the html parsing and when it hits the script tag , it go to the sever and get the code and excute then and there only
+    and again it started parsing the html , it has large gup while html parsing 
+
+    when we use async  calls script while html persing the script will go to network and grabthe data when it holds all data it stops the html parsing and start 
+    excuting script and againg it takes html persing it has also small gap
+
+    when we use differ calls while html persing the script data also grabing form network and when the html persing is end then script data is excuting 
+ 
+
+
+7) where we use async and differ ?
+
+    if we use multiple scripts its depends on each other in that cases we use differ, because it maintain order insted of we use asynk it excute some script 
+    in that situationg offer code will crash
+
+
+8)Why is React known as React?
+
+
+
+
+9)What is difference between react.development.js and react.production.js files via CDN?
