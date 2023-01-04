@@ -1,5 +1,8 @@
+import React from "react";
+import  ReactDOM  from "react-dom/client";
 
- const heading1 = React.createElement("h1",{id:"title"},"Hello this is React!");
+
+ const heading1 = React.createElement("h1",{id:"title"},"Hello this is React it is from parcel!");
  const pharagraf1 = React.createElement("p",{id:"phra"},"Hello this is React! Hello this is React Hello this is React");
 
 
