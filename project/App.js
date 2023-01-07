@@ -1,24 +1,27 @@
 import React from "react";
-import  ReactDOM  from "react-dom/client";
+import ReactDOM from "react-dom/client";
+import Logo from "./public/logo.jpeg";
+import userIcon from "./public/userIcon.png";
 
+const Header = () => {
+  return (
+    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+      <div>
+        <img src={Logo} style={{ borderRadius: "40px", width: "65px",position:"relative",left:"20px" }} />
+      </div>
+      <div style={{width:"100%",position:"relative",left:"200px"}}>
+        <input
+          style={{ width: "70%", height: "20px", borderRadius: "10px",padding:"8px 14px 8px 32px",fontSize:"17px" }}
+          placeholder="Search here ...."
+        />
+      </div>
+      <div>
+        <img src={userIcon} style={{ width: "90px",position:"relative",right:"35px",top:"10px" }} />
+      </div>
+    </div>
+  );
+};
 
- const heading1 = React.createElement("h1",{id:"title"},"Hello this is React it is from parcel!");
- const pharagraf1 = React.createElement("p",{id:"phra"},"Hello this is React! Hello this is React Hello this is React");
+const root = ReactDOM.createRoot(document.getElementById("root"));
 
-
- const heading2 = React.createElement("h2",{id:"title"},"This heading is 2");
- const pharagraf2 = React.createElement("p",{id:"phra"},"Hello this is React! Hello this is React Hello this is React");
-
-
- const heading3 = React.createElement("h3",{id:"title"},"This heading is 3");
-
- const container = React.createElement("div",{id:"container"},[heading1,pharagraf1])
-
- const container1 = React.createElement("div",{id:"container1"},[heading1,pharagraf2])
-
-console.log("I am running ...!")
-
- const root = ReactDOM.createRoot(document.getElementById("root"))
-
- root.render([container,container1,heading3])
-
+root.render(<Header />);
