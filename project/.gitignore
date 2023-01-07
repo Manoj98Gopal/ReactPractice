@@ -4,8 +4,7 @@
 /.pnp
 .pnp.js
 dist/
-.parcel-cache/
-
+.parcel-cache
 
 # testing
 /coverage
