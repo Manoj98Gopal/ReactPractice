@@ -9,7 +9,7 @@ const RestrauntCard = (props) => {
       <div className="food-card">
         <img src={IMG_CLUDINARY_URL+cloudinaryImageId}alt="img"/>
         <h2>{name}</h2>
-        <h3>{cuisines.join(", ")}</h3>
+        <h3>{cuisines?.join(", ")}</h3>
         <h4>{costForTwoString}</h4>
       </div>
     )
