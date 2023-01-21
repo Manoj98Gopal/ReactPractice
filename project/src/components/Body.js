@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import RestrauntCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
 
 
 const filterFunction = (term,array) => {
-
-
+  
   const filterCard = array.filter((cur) => cur?.data?.name?.toLocaleLowerCase().includes(term.toLocaleLowerCase()));
 
   return filterCard;
-
 
 }
 
@@ -26,7 +25,7 @@ const Body = () => {
 
     getData();
 
-  },[])
+  },[search])
 
     const getData = async()=>{
 
@@ -80,7 +79,7 @@ const Body = () => {
 
           {filterCard.map((cur) => {
             console.log(cur)
-          return  <RestrauntCard   {...cur.data}  key ={cur.data.id}/>
+          return  <Link  to={"/restra/"+cur.data.id}   key ={cur.data.id}><RestrauntCard   {...cur.data}  /></Link>
           })}
 
       </div>

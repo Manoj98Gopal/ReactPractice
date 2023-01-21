@@ -13,6 +13,7 @@
 .nav-list > ul > li {
     padding: 20px;
     font-size: 20px;
+    list-style: none;
 }
 
 .logo{
@@ -49,4 +50,7 @@
     margin: 20px;
 }
 
-
+.restraDetail{
+    display: flex;
+    gap:50px
+}
