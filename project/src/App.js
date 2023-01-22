@@ -9,6 +9,7 @@ import Contact from "./components/pages/Contact"
 import { createBrowserRouter,Outlet,RouterProvider} from "react-router-dom";
 import Error from "./components/pages/Error";
 import RestrauntMenu from "./components/pages/RestrauntMenu";
+import Profile from "./components/pages/Profile";
 
 
 const Applayout = () => {
@@ -34,7 +35,11 @@ const appRoute = createBrowserRouter([
     },
     {
       path:"/about",
-      element:<About />
+      element:<About />,
+      children:[{
+        path:"profile",
+        element:<Profile />
+      }]
     },
     {
       path:"/service",
