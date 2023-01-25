@@ -2,43 +2,26 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RestrauntCard from "./RestrauntCard";
 import Shimmer from "./Shimmer";
-
-
-const filterFunction = (term,array) => {
-  
-  const filterCard = array.filter((cur) => cur?.data?.name?.toLocaleLowerCase().includes(term.toLocaleLowerCase()));
-
-  return filterCard;
-
-}
-
-
-
+import { filterFunction } from "../utils/Filter";
+import useRestorentData from "../utils/useRestorentData";
+import useIsOffline from "../utils/useIsOffline";
 
 const Body = () => {
   const [search, setSearch] = useState("");
-  const [cardInfo, setCardData] = useState([]);
-  const [filterCard,setFilterCard] = useState([]);
 
+  const cardInfo = useRestorentData(search);
 
-  useEffect(()=>{
+  const status = useIsOffline();
 
-    getData();
+  if (!status) {
+    return <h1>Please check your Internet</h1>;
+  }
 
-  },[search])
-
-    const getData = async()=>{
-
-      let res = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9970483&lng=77.61440759999999&page_type=DESKTOP_WEB_LISTING")
-      let json = await res.json();
-      const data = json.data?.cards[2]?.data?.data?.cards
-
-      setCardData(data)
-      setFilterCard(data)
-  
-    }
-
-  return filterCard.length === 0?(<div><Shimmer /></div>):(
+  return cardInfo.length === 0 ? (
+    <div>
+      <Shimmer />
+    </div>
+  ) : (
     <div>
       <div>
         <input
@@ -49,17 +32,9 @@ const Body = () => {
           placeholder="Search here ...."
           className="searchBar"
         />
-        <button
-          onClick={() => {
-            const data = filterFunction(search, cardInfo);
-            setFilterCard(data);
-          }}
-        >
-          Search
-        </button>
       </div>
-      {/* <div className="food-card-list">
-        {cardData
+      <div className="food-card-list">
+        {cardInfo
           .filter((cur) => {
             if (search == "") {
               return cur;
@@ -72,17 +47,19 @@ const Body = () => {
             }
           })
           .map((curObj) => {
-            return <RestrauntCard {...curObj.data} key={curObj.data.id} />;
+            return (
+              <Link to={"/restra/" + curObj.data.id} key={curObj.data.id}>
+                <RestrauntCard {...curObj.data} />
+              </Link>
+            );
           })}
-      </div> */}
-      <div className="food-card-list">
-
+      </div>
+      {/* <div className="food-card-list">
           {filterCard.map((cur) => {
             console.log(cur)
           return  <Link  to={"/restra/"+cur.data.id}   key ={cur.data.id}><RestrauntCard   {...cur.data}  /></Link>
           })}
-
-      </div>
+      </div> */}
     </div>
   );
 };

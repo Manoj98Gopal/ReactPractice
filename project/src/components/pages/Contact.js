@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 function Contact() {
+
   return (
     <h1>Contact us</h1>
   )

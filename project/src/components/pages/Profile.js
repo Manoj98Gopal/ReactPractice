@@ -27,25 +27,15 @@ console.log("child constructor");
   //   }
 
     componentDidMount (){
-      console.log("child second did mount")
-
-     
-
-
+      console.log("child did mount")
     }
 
-
-
     componentDidUpdate(){
-      console.log("child I am update component")
+      console.log("child did update component")
     }
 
     componentWillUnmount(){
       console.log("this will unmount..")
-
-      
-
-
     }
 
 
