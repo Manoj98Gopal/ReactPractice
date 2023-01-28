@@ -23,17 +23,17 @@ const Body = () => {
     </div>
   ) : (
     <div>
-      <div>
+      <div className="flex justify-center">
         <input
           value={search}
           onChange={(e) => {
             setSearch(e.target.value);
           }}
           placeholder="Search here ...."
-          className="searchBar"
+          className="p-3 m-1 w-96 bg-slate-100 rounded-2xl"
         />
       </div>
-      <div className="food-card-list">
+      <div className="flex gap-5 flex-wrap p-4">
         {cardInfo
           .filter((cur) => {
             if (search == "") {
