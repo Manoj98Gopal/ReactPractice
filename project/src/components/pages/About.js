@@ -8,14 +8,14 @@ const Section = ({ title, discription, visible, setVisible }) => {
         {visible ? (
           <button
             className="border border-gray-300 p-2 rounded-xl"
-            onClick={() => setVisible(false)}
+            onClick={() => setVisible("null")}
           >
             hide
           </button>
         ) : (
           <button
             className="border border-gray-300 p-2 rounded-xl"
-            onClick={() => setVisible(true)}
+            onClick={() => setVisible(title)}
           >
             show
           </button>
@@ -36,23 +36,23 @@ function About() {
   return (
     <>
       <Section
-        title="About Instamart"
+        title="About"
         discription={data}
-        visible={"about" === visible}
-        setVisible={() => setVisible("about")}
+        visible={"About" === visible}
+        setVisible={(e) => setVisible(e)}
       />
       <Section
-        title="Detail Instamart"
+        title="Detail"
         discription={data}
-        visible={"detail" === visible}
-        setVisible={() => setVisible("detail")}
+        visible={"Detail" === visible}
+        setVisible={(e) => setVisible(e)}
 
       />
       <Section
-        title="Summary Instamart"
+        title="Summary"
         discription={data}
-        visible={"summary" === visible}
-        setVisible={() => setVisible("summary")}
+        visible={"Summary" === visible}
+        setVisible={(e) => setVisible(e)}
 
       />
     </>
