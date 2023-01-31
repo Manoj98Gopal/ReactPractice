@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "../../public/foodLogo.png";
+import React,{useContext} from "react";
+import Context from "../utils/Context";
 
 const Title = () => {
   return (
@@ -12,11 +14,17 @@ const Title = () => {
 };
 
 const Header = () => {
+
+    const {user} = useContext(Context);
+
+
   return (
     <div className="flex justify-between bg-orange-200 shadow-xl mb-2" >
       <div>
         <Title />
       </div>
+
+      <span className="m-10 text-red-600 font-bold text-xl">{user.name}</span>
 
       <div>
         <ul className="flex gap-10 m-10 text-xl">
