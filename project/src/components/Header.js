@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Logo from "../../public/foodLogo.png";
 import React,{useContext} from "react";
 import Context from "../utils/Context";
+import { useSelector, useDispatch } from 'react-redux'
 
 const Title = () => {
   return (
@@ -16,6 +17,9 @@ const Title = () => {
 const Header = () => {
 
     const {user} = useContext(Context);
+    const cartCont = useSelector((store) => store.cart.items)
+
+    console.log("cart count =",cartCont)
 
 
   return (
@@ -43,7 +47,9 @@ const Header = () => {
           <li>
             <Link to="/instamart">Instamart</Link>
           </li>
-          <li>Cart</li>
+          <li>
+            <Link to="/cart">Cart = No items:{cartCont.length}</Link>
+          </li>
         </ul>
       </div>
     </div>

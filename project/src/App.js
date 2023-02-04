@@ -12,27 +12,27 @@ import RestrauntMenu from "./components/pages/RestrauntMenu";
 import Profile from "./components/pages/Profile";
 import Context from "./utils/Context";
 // import Instamart from "./components/pages/Instamart";
+import {Provider} from "react-redux"
+import store from "./App/store";
+import Cart from "./components/pages/Cart";
 
-
-const Instamart = lazy(() => import("./components/pages/Instamart"))
-
+const Instamart = lazy(() => import("./components/pages/Instamart"));
 
 const Applayout = () => {
-
-const [user,setUser] = useState({
-  
-    name:"",
-    email:""
-  
-})
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+  });
 
   return (
     <>
-    <Context.Provider value={{user:user,setUser:setUser}}>
-      <Header />
-      <Outlet />
-      <Footer />
-      </Context.Provider >
+      <Provider store={store}>
+        <Context.Provider value={{ user: user, setUser: setUser }}>
+          <Header />
+          <Outlet />
+          <Footer />
+        </Context.Provider>
+      </Provider>
     </>
   );
 };
@@ -71,8 +71,16 @@ const appRoute = createBrowserRouter([
       },
       {
         path: "/instamart",
-        element:<Suspense><Instamart /></Suspense> ,
+        element: (
+          <Suspense>
+            <Instamart />
+          </Suspense>
+        ),
       },
+      {
+        path: "/cart",
+        element:<Cart/>
+      }
     ],
   },
 ]);

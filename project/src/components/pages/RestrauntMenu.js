@@ -3,17 +3,26 @@ import { useParams } from "react-router-dom";
 import { IMG_CLUDINARY_URL } from "../../Constants";
 import useRestroMenu from "../../utils/useRestroMenu";
 import Shimmer from "../Shimmer";
+import { useSelector, useDispatch } from 'react-redux'
+import { addItem } from "../../utils/cartSlice";
+
 
 function RestrauntMenu() {
   const params = useParams();
   const restroInfo = useRestroMenu(params.id);
+
+  const disptch = useDispatch();
+
+  const handleItem = (name) => {
+        disptch(addItem(name))
+  }
 
   return Object.keys(restroInfo).length == 0 ? (
     <div>
       <Shimmer />
     </div>
   ) : (
-    <div className="restraDetail">
+    <div className="flex">
       <div>
         <h3>Restraunt id {params.id}</h3>
         <h2>{restroInfo?.name}</h2>
@@ -28,7 +37,7 @@ function RestrauntMenu() {
         <h2>Menus </h2>
         <ul>
           {Object.values(restroInfo?.menu?.items).map((cur) => (
-            <li key={cur.id}>{cur.name}</li>
+          <li key={cur.id}>{cur.name}<button  onClick={() => handleItem(cur.name)} className="p-2 m-2 bg-green-600 rounded-lg">Add</button></li>
           ))}
         </ul>
       </div>
