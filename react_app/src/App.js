@@ -1,12 +1,13 @@
-import { Card, Typography } from "antd";
-const {Title} = Typography
+import { BrowserRouter } from "react-router-dom";
+import MainRoute from "./routes/MainRoute";
+
 
 function App() {
   return (
     <>
-    <Card>
-      <Title level={2}>Main component !</Title>
-    </Card>
+    <BrowserRouter>
+      <MainRoute />
+    </BrowserRouter>
     </>
   );
 }
