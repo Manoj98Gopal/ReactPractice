@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import { Breadcrumb, Button, Layout, Menu, theme } from "antd";
-import { HomeOutlined, UserOutlined, TeamOutlined } from "@ant-design/icons"; // Import icons
+import { useNavigate } from "react-router-dom"; // Import Link from react-router-dom
+import { Button, Layout,theme } from "antd";
+import bgImage from "../background.jpg"
+
 
 const { Header, Content, Footer } = Layout;
 
@@ -9,6 +10,8 @@ function HomePage() {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+
+  const navigate = useNavigate();
 
   return (
     <Layout className="layout">
@@ -23,7 +26,7 @@ function HomePage() {
         <div className="demo-logo" />
 
        <Button type="primary">Admin</Button>
-       <Button type="primary">Candidate</Button>
+       <Button type="primary" onClick={() => {navigate("pdfViewer")}}  >Candidate</Button>
        <Button type="primary">Recruiter</Button>
 
       </Header>
@@ -31,9 +34,11 @@ function HomePage() {
       <Content
         style={{
           padding: "0 50px",
-          background: `url('path/to/background-image.jpg')`, 
-          backgroundSize: "cover",
+          background: `url(${bgImage})`, 
+          backgroundSize: "70%", // or "contain" or "100% auto"
+          backgroundPosition: "center", 
           minHeight: "calc(100vh - 134px)", 
+          
         }}
       >
         Content
