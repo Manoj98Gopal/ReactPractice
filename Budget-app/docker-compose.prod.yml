@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  budget:
+    container_name: budget-app
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    ports:
+      - "80:80"
