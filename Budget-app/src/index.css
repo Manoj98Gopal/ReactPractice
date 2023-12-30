@@ -1,0 +1,13 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.center-content{
+
+    display: flex;
+    justify-content: center;
+    margin-top: 20em;
+}

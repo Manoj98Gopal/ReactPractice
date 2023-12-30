@@ -9,7 +9,9 @@ module.exports = {
     filename: "main.[contenthash].js",
     clean: true,
   },
-
+  devServer: {
+    historyApiFallback: true,
+  },
   plugins: [
     new HTMLWebpackPlugin({
       template: "./public/index.html",

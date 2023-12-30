@@ -1,11 +1,13 @@
-import React from 'react'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import MainLayout from "./page/MainLayout";
 
 function App() {
   return (
     <div>
-        <h1>Hello i am working...!</h1>
+      <MainLayout />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
