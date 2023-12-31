@@ -8,7 +8,7 @@ function Protected({ children }) {
 
   useEffect(() => {
     async function checkSession() {
-      const sessionExist = false;
+      const sessionExist = true;
 
       if (sessionExist) {
         setIsSession(true);

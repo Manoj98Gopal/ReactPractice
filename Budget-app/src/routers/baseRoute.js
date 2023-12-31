@@ -1,7 +1,13 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import LoginPage from "../features/components/LoginPage";
-import App from "../App";
+// import App from "../App";
 import Protected from "../features/auth/Protected";
+
+
+const App = lazy(() => import("../App"));
+
+
+
 
 export const baseRoute = [
   {
@@ -21,12 +27,29 @@ export const baseRoute = [
     ),
   },
   {
+    path: "/contact",
+    element: (
+      <div>
+        <LoginPage data="contact" />
+      </div>
+    ),
+  },{
+    path: "/About",
+    element: (
+      <div>
+        <LoginPage data="About" />
+      </div>
+    ),
+  },
+  {
     path: "*",
     element: (
       <div>
-        <Protected>
-          <App />
-        </Protected>
+        <Suspense>
+          <Protected>
+            <App />
+          </Protected>
+        </Suspense>
       </div>
     ),
   },
